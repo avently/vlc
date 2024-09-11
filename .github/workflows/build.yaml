@@ -51,12 +51,18 @@ jobs:
           distribution: 'corretto'
           java-version: '8'
 
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
       # / Unix
       - name: macos build
         id: mac_build
         if: matrix.os == 'macos-latest' || matrix.os == 'macos-13'
         shell: bash
         run: |
+          brew install gettext
+          brew link --force gettext
           mkdir build
           cd build
           ../extras/package/macosx/build.sh -c
