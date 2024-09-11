@@ -324,6 +324,7 @@ if [ "${vlcroot}/configure" -nt Makefile ]; then
       --with-macosx-sdk=$SDKROOT \
       --disable-gnutls \
       --disable-sparkle \
+      --disable-shout \
       $CONFIGFLAGS \
       $VLC_CONFIGURE_ARGS > $out
 fi
